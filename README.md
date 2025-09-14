@@ -1,11 +1,11 @@
 # Network Telemetry Aggregation System
 
 ## Overview
-This project implements a network telemetry aggregation system inspired by NVIDIA’s UFM.  
+This project implements a network telemetry aggregation system. 
 It consists of two components:
 
 1. **Telemetry Generator (`telemetry_generator.py`)**  
-   - Simulates telemetry metrics (`bandwidth`, `latency`, `errors`) for multiple switches.  
+   - Simulates real-life telemetry metrics (`bandwidth`, `latency`, `errors`) for multiple switches.  
    - Updates values every second.  
    - Serves a **CSV feed** at:  
      ```
@@ -19,7 +19,7 @@ It consists of two components:
 
 2. **Metrics Server (`metrics_server.py`)**  
    - Periodically fetches telemetry from the generator.  
-   - Stores data in memory per switch and metric.  
+   - Stores the data in memory per switch and metric.  
    - Provides REST APIs for querying, aggregating, and observing telemetry.  
    - Tracks:
       - API requests & errors  
