@@ -1,4 +1,3 @@
-# network-telemetry-aggregation-system
 # Network Telemetry Aggregation System
 
 ## Overview
