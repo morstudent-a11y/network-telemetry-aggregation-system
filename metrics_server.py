@@ -121,13 +121,10 @@ async def stats(request):
         }
     latency_stats['uptime_seconds'] = uptime
 
-    # Pretty-print telemetry_data to the server console
-    # pprint.pprint(telemetry_data)
-
     # Return all telemetry data in the response, pretty-printed
-    # return web.json_response(
-        #{**api_stats, 'latency': latency_stats, 'telemetry_data': telemetry_data}
-    #)
+    return web.json_response(
+        {**api_stats, 'latency': latency_stats}
+    )
 
 @with_latency('aggregate_metrics')
 async def aggregate_metrics(request):
