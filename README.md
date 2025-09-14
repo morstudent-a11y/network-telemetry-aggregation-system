@@ -18,19 +18,26 @@ It consists of two components:
      ```
 
 2. **Metrics Server (`metrics_server.py`)**  
-   - Fetches and stores telemetry data in memory.  
-   - Provides REST APIs to query and aggregate metrics.  
-   - Tracks API request counts, error counts, uptime, and latency stats.  
-   - Ensures **data freshness** (only data newer than 3 seconds is considered valid).  
+   - Periodically fetches telemetry from the generator.  
+   - Stores data in memory per switch and metric.  
+   - Provides REST APIs for querying, aggregating, and observing telemetry.  
+   - Tracks:
+      - API requests & errors  
+      - Latency per API  
+      - Uptime since server start  
+      - Enforces **freshness validation**: only accepts telemetry data ≤ 3 seconds old 
 
 ---
 
 ## Features
 - **Real-time telemetry** updates every 1 second.  
-- **Freshness validation** (stale data returns HTTP 503).  
-- **Historical storage** per switch (lists of values).  
-- **Aggregations**: max latency, min bandwidth, total errors.  
-- **Observability**: request counts, error counts, average/min/max API latency, uptime.  
+- **Freshness checks**: stale data returns `503 Service Unavailable`.  
+- **Historical values** stored per metric and switch.  
+- **Aggregations**: 
+   - Max latency  
+   - Min bandwidth  
+   - Total errors  
+- **Observability**: request count, error count, avg/min/max API latency, uptime.   
 
 ---
 
