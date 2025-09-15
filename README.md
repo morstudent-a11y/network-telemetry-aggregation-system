@@ -137,14 +137,14 @@ Runs on `http://127.0.0.1:8080`
 
 ## Limitations
 - Data is stored **in-memory only** (lost on restart).  
-- Limited scalability (single-process, single-node)  
+- Limited scalability (single-process)  
 - No authentication/rate limiting.  
 
 ---
 
 ## Future Improvements
 - Use **Redis / PostgreSQL** for persistent + scalable storage.
-- Support streaming telemetry (WebSockets, Kafka, gRPC).
+- Support better scalability (Kafka for example).
 - Add **structured logging**. 
 - Implement **authentication & rate limiting**.  
 
